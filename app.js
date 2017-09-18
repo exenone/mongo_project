@@ -75,6 +75,7 @@ app.get('/newadminsave',jsonParser,function(req,res,next){
   res.render('newadminsave',{title:'welcome'});
 });
 
+
 /*app.use('index',jsonParser,function(req,res){
 	User.find({Score: "50"}, function(err, docs){
 		if(err) res.json(err);
@@ -122,8 +123,13 @@ app.get('/newadminsave',jsonParser,function(req,res,next){
 
 
  app.get('/view',urlencodedParser, function(req, res){
-	User.find({Score: "50"}, function(err, docs){
-   
+  User.find({
+       // Score:{$gt: 70}},
+    //{
+     // _id: 0,Score:0,__v:0
+    },
+     function(err, docs){
+
 		if(err) res.json(err);
  //else   res.render('results', {users: docs});
    else   res.render('work', {users: docs});

@@ -1,9 +1,28 @@
 
 
 
-each User in users
+
  
-   ol#teams
-    li Team #{User.team_name}  has  #{User.Score}: marks
+
+
+ul                   
+-each User in users       
+    li= User              
+     - for (var i = 0; i <User.length; ++i) {
+        li= users[i]
+     - }
+
+     li[i+1]
+
+
+ 
+
+ -each User, i in users
     
-    
+    -var fc = User.Score;
+    if( fc === 80 )
+     p You have 80 followers
+    else if( fc === 70 )
+     p You have 70 follower
+    else
+     p try again.....:(
